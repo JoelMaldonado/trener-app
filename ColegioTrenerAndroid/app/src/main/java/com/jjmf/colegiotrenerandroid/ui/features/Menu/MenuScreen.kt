@@ -21,6 +21,7 @@ import com.jjmf.colegiotrenerandroid.ui.features.Menu.Features.Autorizaciones.Au
 import com.jjmf.colegiotrenerandroid.ui.features.Menu.Features.CitaInforme.CitaInformeScreen
 import com.jjmf.colegiotrenerandroid.ui.features.Menu.Features.Tareas.Incumplimientos.TareasIncumplimientosScreen
 import com.jjmf.colegiotrenerandroid.ui.features.Menu.Features.Tareas.Pendientes.TareasPendientesScreen
+import com.jjmf.colegiotrenerandroid.ui.features.Menu.Features.Correos.CorreoScreen
 import com.jjmf.colegiotrenerandroid.ui.features.Menu.routes.administrativosRoutes
 import com.jjmf.colegiotrenerandroid.ui.features.Notificaciones.NotificacionesScreen
 import com.jjmf.colegiotrenerandroid.ui.features.Perfil.PerfilScreen
@@ -36,7 +37,7 @@ fun MenuScreen(
     val navMenu = rememberNavController()
 
     Image(
-        painter = painterResource(id = R.drawable.fondo_menu),
+        painter = painterResource(id = R.drawable.fondo_menu_actualizado),
         contentDescription = null,
         modifier = Modifier.fillMaxSize(),
         contentScale = ContentScale.FillBounds
@@ -76,6 +77,11 @@ fun MenuScreen(
             composable(Rutas.Notificaciones.route){
                 viewModel.title = "Notificaciones"
                 NotificacionesScreen()
+            }
+
+            composable(Rutas.Correos.route){
+                viewModel.title = "Correos"
+                CorreoScreen()
             }
 
             composable(Rutas.Perfil.route){

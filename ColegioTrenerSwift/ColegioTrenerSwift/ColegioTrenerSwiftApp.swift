@@ -22,6 +22,7 @@ struct ColegioTrenerSwiftApp: App {
                         LoginView()
                     }
                 }
+                .toolbar(.hidden, for: .navigationBar)
                 SplashView(isActive: $isSplashActive)
             }
             .preferredColorScheme(.light)

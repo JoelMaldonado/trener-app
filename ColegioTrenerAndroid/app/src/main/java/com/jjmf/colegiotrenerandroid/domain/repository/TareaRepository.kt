@@ -4,6 +4,7 @@ import com.jjmf.colegiotrenerandroid.core.Result
 import com.jjmf.colegiotrenerandroid.domain.model.EstadoCalPendiente
 import com.jjmf.colegiotrenerandroid.domain.model.EstadoCalPendienteDia
 import com.jjmf.colegiotrenerandroid.domain.model.Incumplimiento
+import com.jjmf.colegiotrenerandroid.domain.model.CorreoMasivo
 
 interface TareaRepository {
 
@@ -21,6 +22,13 @@ interface TareaRepository {
     ): Result<List<EstadoCalPendienteDia>>
 
     suspend fun listarIncumplimientos(ctactli: String): Result<List<Incumplimiento>>
+
+    suspend fun getCorreos(
+        ctacli: String,
+        dia: String,
+        mes: String,
+        anio: String
+    ): Result<List<CorreoMasivo>>
 
 }
 

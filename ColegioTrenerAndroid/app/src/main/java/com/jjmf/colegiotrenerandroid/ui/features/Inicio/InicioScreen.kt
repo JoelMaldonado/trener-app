@@ -4,11 +4,14 @@ import android.content.Intent
 import android.net.Uri
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
@@ -34,7 +37,7 @@ import com.jjmf.colegiotrenerandroid.ui.navigation.Rutas
 @Composable
 fun InicioScreen(
     navMenu: NavHostController,
-    viewModel: InicioViewModel = hiltViewModel()
+    viewModel: InicioViewModel = hiltViewModel(),
 ) {
     val context = LocalContext.current
     Column(
@@ -47,37 +50,63 @@ fun InicioScreen(
         /** Administrativos **/
         Column(
             modifier = Modifier.fillMaxWidth()
-        ){
+        ) {
             TextInicio(text = "Administrativos")
 
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.SpaceBetween
-            ){
-                ItemInicio(
-                    text = "Datos",
-                    ic = R.drawable.ic_datos,
-                    click = {
-                        navMenu.navigate(Rutas.Administrativos.Datos.route)
-                    }
-                )
+                horizontalArrangement = Arrangement.spacedBy(8.dp)
+            ) {
+                Box(modifier = Modifier.weight(1f), contentAlignment = Alignment.Center) {
+                    ItemInicio(
+                        text = "Datos",
+                        ic = R.drawable.ic_datos_actualizado,
+                        click = {
+                            navMenu.navigate(Rutas.Administrativos.Datos.route)
+                        }
+                    )
+                }
 
-                ItemInicio(
-                    text = "Pagos",
-                    ic = R.drawable.ic_pagos,
-                    click = {
-                        navMenu.navigate(Rutas.Administrativos.Pagos.route)
-                    }
-                )
+                Box(modifier = Modifier.weight(1f), contentAlignment = Alignment.Center) {
+                    ItemInicio(
+                        text = "Pagos",
+                        ic = R.drawable.ic_pagos_actualizado,
+                        click = {
+                            navMenu.navigate(Rutas.Administrativos.Pagos.route)
+                        }
+                    )
+                }
 
-                ItemInicio(
-                    text = "Registros",
-                    ic = R.drawable.ic_inscripciones,
-                    click = {
-                        navMenu.navigate(Rutas.Administrativos.Inscripciones.route)
-                    }
-                )
+                Box(modifier = Modifier.weight(1f), contentAlignment = Alignment.Center) {
+                    ItemInicio(
+                        text = "Registros",
+                        ic = R.drawable.ic_registros_actualizado,
+                        click = {
+                            navMenu.navigate(Rutas.Administrativos.Inscripciones.route)
+                        }
+                    )
+                }
+            }
+
+            Spacer(modifier = Modifier.height(12.dp))
+
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.spacedBy(8.dp)
+            ) {
+                Box(modifier = Modifier.weight(1f), contentAlignment = Alignment.Center) {
+                    ItemInicio(
+                        text = "Correos",
+                        ic = R.drawable.ic_correos_actualizado,
+                        click = {
+                            navMenu.navigate(Rutas.Correos.route)
+                        }
+                    )
+                }
+                Spacer(modifier = Modifier.weight(1f))
+                Spacer(modifier = Modifier.weight(1f))
             }
 
         }
@@ -85,100 +114,112 @@ fun InicioScreen(
         /** Asistencia **/
         Column(
             modifier = Modifier.fillMaxWidth()
-        ){
-            TextInicio(text = "Asistencia")
+        ) {
+            TextInicio(text = "Asistencias")
 
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.SpaceBetween
+                horizontalArrangement = Arrangement.spacedBy(8.dp)
             ) {
-
-                ItemInicio(
-                    text = "Diaria y acumulada",
-                    ic = R.drawable.ic_diaria_acumulada,
-                    click = {
-                        navMenu.navigate(Rutas.Asistencia.DiariaAcumulada.route)
-                    }
-                )
-                ItemInicio(
-                    text = "Justificaciones",
-                    ic = R.drawable.icon_justificaciones,
-                    click = {
-                        navMenu.navigate(Rutas.Asistencia.Justificacion.route)
-                    }
-                )
-                ItemInicio(
-                    text = "Carnet",
-                    ic = R.drawable.icon_carnet,
-                    click = {
-                        navMenu.navigate(Rutas.Asistencia.Carnet.route)
-                    }
-                )
+                Box(modifier = Modifier.weight(1f), contentAlignment = Alignment.Center) {
+                    ItemInicio(
+                        text = "Diarias",
+                        ic = R.drawable.ic_diaria_acumulada_actualizado,
+                        click = {
+                            navMenu.navigate(Rutas.Asistencia.DiariaAcumulada.route)
+                        }
+                    )
+                }
+                Box(modifier = Modifier.weight(1f), contentAlignment = Alignment.Center) {
+                    ItemInicio(
+                        text = "Justificaciones",
+                        ic = R.drawable.ic_justificaciones_actualizado,
+                        click = {
+                            navMenu.navigate(Rutas.Asistencia.Justificacion.route)
+                        }
+                    )
+                }
+                Box(modifier = Modifier.weight(1f), contentAlignment = Alignment.Center) {
+                    ItemInicio(
+                        text = "Carnets",
+                        ic = R.drawable.ic_carnet_actualizado,
+                        click = {
+                            navMenu.navigate(Rutas.Asistencia.Carnet.route)
+                        }
+                    )
+                }
             }
         }
 
         /** Tareas **/
         Column(
             modifier = Modifier.fillMaxWidth()
-        ){
+        ) {
             TextInicio(text = "Tareas")
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.SpaceBetween
+                horizontalArrangement = Arrangement.spacedBy(8.dp)
             ) {
-                ItemInicio(
-                    text = "Pendientes",
-                    ic = R.drawable.ic_pendientes,
-                    click = {
-                        navMenu.navigate(Rutas.Tareas.Pendientes.route)
-                    }
-                )
+                Box(modifier = Modifier.weight(1f), contentAlignment = Alignment.Center) {
+                    ItemInicio(
+                        text = "Pendientes",
+                        ic = R.drawable.ic_pendientes_actualizado,
+                        click = {
+                            navMenu.navigate(Rutas.Tareas.Pendientes.route)
+                        }
+                    )
+                }
 
-                ItemInicio(
-                    text = "Incumplimientos",
-                    ic = R.drawable.ic_incumplimientos,
-                    click = {
-                        navMenu.navigate(Rutas.Tareas.Incumplimientos.route)
-                    }
-                )
-
-                Spacer(modifier = Modifier.width(0.dp))
-                
+                Box(modifier = Modifier.weight(1f), contentAlignment = Alignment.Center) {
+                    ItemInicio(
+                        text = "Incumplimientos",
+                        ic = R.drawable.ic_incumplimiento_actualizado,
+                        click = {
+                            navMenu.navigate(Rutas.Tareas.Incumplimientos.route)
+                        }
+                    )
+                }
+                Spacer(modifier = Modifier.weight(1f))
             }
         }
 
         /** Resultados académicos **/
         Column(
             modifier = Modifier.fillMaxWidth()
-        ){
+        ) {
             TextInicio(text = "Resultados académicos")
 
+
             ItemInicio(
-                text = "Cita/informe",
-                ic = R.drawable.ic_cita_informe,
-                isVertical = false,
+                text = "Citas/informes",
+                ic = R.drawable.ic_citas_actualizado,
+                //isVertical = false,
                 click = {
                     navMenu.navigate(Rutas.Resultados.CitaInforme.route)
-                }
+                },
             )
+
+
         }
 
         /** Autorizaciones **/
         Column(
             modifier = Modifier.fillMaxWidth()
-        ){
+        ) {
             TextInicio(text = "Autorizaciones")
+
 
             ItemInicio(
                 text = "Autorizaciones",
-                ic = R.drawable.ic_autorizaciones,
-                isVertical = false,
+                ic = R.drawable.ic_autorizacion_actualizado,
+                //isVertical = false,
                 click = {
                     navMenu.navigate(Rutas.Autorizaciones.route)
                 }
             )
+
         }
         Spacer(modifier = Modifier.weight(1f))
 

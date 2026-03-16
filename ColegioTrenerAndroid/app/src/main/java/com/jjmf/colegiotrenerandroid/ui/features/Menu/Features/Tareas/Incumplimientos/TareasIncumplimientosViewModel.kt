@@ -22,6 +22,7 @@ class TareasIncumplimientosViewModel @Inject constructor(
 
     var trimestre by mutableStateOf<Trimestre?>(null)
     var list by mutableStateOf<List<Incumplimiento>>(emptyList())
+    var totalAcumulado by mutableStateOf(0)
     var error by mutableStateOf<String?>(null)
     var isLoadingList by mutableStateOf(false)
 
@@ -52,13 +53,21 @@ class TareasIncumplimientosViewModel @Inject constructor(
                 )
                 when (res) {
                     is Result.Correcto -> {
-                        list = res.datos ?: emptyList()
+                        val data = res.datos ?: emptyList()
+                        list = data
+                        totalAcumulado = data.firstNotNullOfOrNull { it.total } ?: 0
                     }
 
-                    is Result.Error -> error = res.mensaje
+                    is Result.Error -> {
+                        error = res.mensaje
+                        list = emptyList()
+                        totalAcumulado = 0
+                    }
                 }
             } catch (e: Exception) {
                 error = e.message
+                list = emptyList()
+                totalAcumulado = 0
             } finally {
                 isLoadingList = false
             }

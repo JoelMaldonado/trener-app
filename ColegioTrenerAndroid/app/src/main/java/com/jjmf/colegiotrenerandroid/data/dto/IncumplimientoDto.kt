@@ -12,7 +12,8 @@ data class IncumplimientoDto(
     val fectar: String?,
     val cumtar: String?,
     val abrevactualmod: String?,
-    val leyenda1: String?
+    val leyenda1: String?,
+    val total:Int?
 ) {
     fun toDomain(): Incumplimiento {
         return Incumplimiento(
@@ -23,7 +24,8 @@ data class IncumplimientoDto(
             fectar = fectar?.toDate() ?: Date(),
             cumtar = cumtar?.toDate() ?: Date(),
             abrevactualmod = abrevactualmod?.trim(),
-            leyenda1 = leyenda1?.trim()
+            leyenda1 = leyenda1?.trim(),
+            total = total
         )
     }
 }

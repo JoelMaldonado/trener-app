@@ -18,4 +18,5 @@ struct TareaIncumplimiento: Hashable {
     let leyenda1: String
     let fechaini: Date
     let fechafin: Date
+    let total: Int?
 }

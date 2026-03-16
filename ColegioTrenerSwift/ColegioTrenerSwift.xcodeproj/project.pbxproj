@@ -124,6 +124,7 @@
 		5DFFD5192BD84E5B00130F0B /* PerfilView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DFFD5182BD84E5B00130F0B /* PerfilView.swift */; };
 		5DFFD51B2BD85E5500130F0B /* InformeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DFFD51A2BD85E5500130F0B /* InformeService.swift */; };
 		5DFFD51F2BD86A0E00130F0B /* CitaInforme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DFFD51E2BD86A0E00130F0B /* CitaInforme.swift */; };
+		8478AEA42EC2C21000C97E05 /* CorreoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8478AEA32EC2C21000C97E05 /* CorreoView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -242,6 +243,7 @@
 		5DFFD5182BD84E5B00130F0B /* PerfilView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfilView.swift; sourceTree = "<group>"; };
 		5DFFD51A2BD85E5500130F0B /* InformeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformeService.swift; sourceTree = "<group>"; };
 		5DFFD51E2BD86A0E00130F0B /* CitaInforme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitaInforme.swift; sourceTree = "<group>"; };
+		8478AEA32EC2C21000C97E05 /* CorreoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CorreoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -479,6 +481,7 @@
 		5D5A3D262B6981AC00F88156 /* Menu */ = {
 			isa = PBXGroup;
 			children = (
+				8478AEA22EC2C18400C97E05 /* Correo */,
 				5DE1E1A92B6AE9600064B3C8 /* Administrativos */,
 				5DE1E1C22B6B22750064B3C8 /* Asistencia */,
 				5DE1E1C12B6B22700064B3C8 /* Tareas */,
@@ -780,6 +783,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		8478AEA22EC2C18400C97E05 /* Correo */ = {
+			isa = PBXGroup;
+			children = (
+				8478AEA32EC2C21000C97E05 /* CorreoView.swift */,
+			);
+			path = Correo;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -910,6 +921,7 @@
 				5DE1E1BC2B6AF0670064B3C8 /* DatosClubesViewModel.swift in Sources */,
 				5DE1E1B42B6AED7E0064B3C8 /* DatosApoderadoView.swift in Sources */,
 				5DE1E1C52B6B22A30064B3C8 /* AutorizacionesView.swift in Sources */,
+				8478AEA42EC2C21000C97E05 /* CorreoView.swift in Sources */,
 				5D3320E02BD969CD008C2588 /* AutorizacionService.swift in Sources */,
 				5DBB72BF2BE182A4004BC530 /* TokenUsecase.swift in Sources */,
 				5DF14BF02BDAF73000106946 /* ItemCardInscripcion.swift in Sources */,
@@ -1104,7 +1116,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = ColegioTrenerSwift/ColegioTrenerSwift.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 22;
+				CURRENT_PROJECT_VERSION = 23;
 				DEVELOPMENT_ASSET_PATHS = "\"ColegioTrenerSwift/Preview Content\"";
 				DEVELOPMENT_TEAM = CXH9DAPMNQ;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -1126,7 +1138,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.4;
-				MARKETING_VERSION = 1.2.7;
+				MARKETING_VERSION = 1.2.8;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jjmf.ios.ColegioTrenerSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
@@ -1145,7 +1157,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = ColegioTrenerSwift/ColegioTrenerSwift.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 22;
+				CURRENT_PROJECT_VERSION = 23;
 				DEVELOPMENT_ASSET_PATHS = "\"ColegioTrenerSwift/Preview Content\"";
 				DEVELOPMENT_TEAM = CXH9DAPMNQ;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -1167,7 +1179,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.4;
-				MARKETING_VERSION = 1.2.7;
+				MARKETING_VERSION = 1.2.8;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jjmf.ios.ColegioTrenerSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;

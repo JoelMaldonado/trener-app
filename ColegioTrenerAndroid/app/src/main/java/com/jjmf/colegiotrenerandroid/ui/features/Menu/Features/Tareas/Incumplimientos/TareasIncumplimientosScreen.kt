@@ -67,9 +67,16 @@ fun TareasIncumplimientosScreen(
                     color = Color.White,
                     fontWeight = FontWeight.Bold
                 )
-
                 Text(
                     modifier = Modifier.weight(1f),
+                    text = viewModel.totalAcumulado.toString(),
+                    fontWeight = FontWeight.Bold,
+                    textAlign = TextAlign.Center
+                )
+                Text(
+                    modifier = Modifier
+                        .background(ColorS1)
+                        .padding(vertical = 3.dp, horizontal = 8.dp),
                     text = "Trimestre",
                     fontWeight = FontWeight.Bold,
                     textAlign = TextAlign.Center

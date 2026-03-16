@@ -10,5 +10,6 @@ data class Incumplimiento(
     val fectar: Date,
     val cumtar: Date,
     val abrevactualmod: String?,
-    val leyenda1: String?
+    val leyenda1: String?,
+    val total:Int?
 )

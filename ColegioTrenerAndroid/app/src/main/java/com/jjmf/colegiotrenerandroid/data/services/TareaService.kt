@@ -29,4 +29,13 @@ interface TareaService {
         @Header("Authorization") token: String
     ): Response<String>
 
+    @GET("PublicacionFox/TrenerWCFOX.svc/Trener/getCorreoMasivoPorAlumno/{ctacli},{dia},{mes},{anio}")
+    suspend fun getCorreos(
+        @Path("ctacli") ctacli: String,
+        @Path("dia") dia: String,
+        @Path("mes") mes: String,
+        @Path("anio") anio: String,
+        @Header("Authorization") token: String
+    ): Response<String>
+
 }

@@ -18,6 +18,7 @@ struct TareaIncumplimientoDto: Codable {
     let leyenda1: String?
     let fechaini: String?
     let fechafin: String?
+    let total: Int?
     
     func toDomain() -> TareaIncumplimiento {
         return TareaIncumplimiento(
@@ -30,7 +31,8 @@ struct TareaIncumplimientoDto: Codable {
             abrevactualmod: abrevactualmod?.trimmingCharacters(in: .whitespacesAndNewlines) ?? "",
             leyenda1: leyenda1?.trimmingCharacters(in: .whitespacesAndNewlines) ?? "",
             fechaini: fechaini?.toDate() ?? .now,
-            fechafin: fechafin?.toDate() ?? .now
+            fechafin: fechafin?.toDate() ?? .now,
+            total: total
         )
     }
 }

@@ -34,6 +34,23 @@ enum LeyendaPendientesTab: CaseIterable{
             "Revisado"
         }
     }
+    
+    static func from(name: String?) -> LeyendaPendientesTab? {
+        guard let name = name?.trimmingCharacters(in: .whitespacesAndNewlines).lowercased() else {
+            return nil
+        }
+        
+        switch name {
+        case "no hizo tarea", "no hizo la tarea":
+            return .NoTarea
+        case "pendiente":
+            return .Pendiente
+        case "revisado":
+            return .Revisado
+        default:
+            return nil
+        }
+    }
 }
 
 struct FechaTareaDto: Codable {
@@ -45,22 +62,9 @@ struct FechaTareaDto: Codable {
     
     func toDomain() -> FechaTarea {
         
-        var estado: LeyendaPendientesTab?
-        
-        switch self.estado?.trimmingCharacters(in: .whitespacesAndNewlines) {
-        case "No hizo tarea":
-            estado = .NoTarea
-        case "Pendiente":
-            estado = .Pendiente
-        case "Revisado":
-            estado = .Revisado
-        default:
-            estado = nil
-        }
-        
         return FechaTarea(
             fechaAsignacion: fechaasignacion?.toDate() ?? .now,
-            estado: estado,
+            estado: LeyendaPendientesTab.from(name: self.estado),
             cantidad: Int(self.cantidad ?? 0)
         )
     }

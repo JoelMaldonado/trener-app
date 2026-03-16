@@ -44,6 +44,8 @@ struct MenuView: View {
                         CitaInformeView()
                     case .Autorizaciones:
                         AutorizacionesView()
+                    case .Correos:
+                        CorreoView()
                     case .Notificaciones:
                         NotificacionesView()
                     case .Perfil:
@@ -69,6 +71,7 @@ enum MenuTab {
     case Incumplimientos
     case CitaInforme
     case Autorizaciones
+    case Correos
     case Notificaciones
     case Perfil
     
@@ -96,6 +99,8 @@ enum MenuTab {
             return "Cita/Informe"
         case .Autorizaciones:
             return "Autorizaciones"
+        case .Correos:
+            return "Correos"
         case .Notificaciones:
             return "Notificaciones"
         case .Perfil:
@@ -110,10 +115,10 @@ struct ItemMenuView : View {
     var body: some View {
         VStack(alignment: .leading, spacing: 0){
             Text(label)
-                .font(.title2)
-                .bold()
+                .font(.system(size: 18, weight: .semibold))
             Rectangle()
                 .frame(height: 2)
+                .padding(.bottom, 15)
         }
         .foregroundStyle(.white)
     }

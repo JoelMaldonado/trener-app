@@ -23,7 +23,7 @@ import com.jjmf.colegiotrenerandroid.ui.theme.ColorS1
 fun CardInscripcion(
     ctacli: String,
     title: String,
-    data: List<Inscripcion>
+    data: List<Inscripcion>,
 ) {
     Card(
         modifier = Modifier.fillMaxWidth(),
@@ -39,7 +39,7 @@ fun CardInscripcion(
                     .fillMaxWidth()
                     .background(ColorS1)
             ) {
-                Text(
+                /*Text(
                     text = "Codigo: 154",
                     color = Color.White,
                     modifier = Modifier
@@ -47,7 +47,18 @@ fun CardInscripcion(
                         .align(Alignment.CenterStart),
                     fontSize = 12.sp,
                     fontWeight = FontWeight.SemiBold
-                )
+                )*/
+                data.forEach {
+                    Text(
+                        text = "Codigo: ${it.codtipoinscripcion.toString()}",
+                        color = Color.White,
+                        modifier = Modifier
+                            .padding(start = 4.dp)
+                            .align(Alignment.CenterStart),
+                        fontSize = 12.sp,
+                        fontWeight = FontWeight.SemiBold
+                    )
+                }
                 Text(
                     text = "$title",
                     color = Color.White,

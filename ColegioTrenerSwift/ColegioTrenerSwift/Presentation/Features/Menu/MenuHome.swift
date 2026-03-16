@@ -11,190 +11,221 @@ struct MenuHome: View {
     @Binding var tab: MenuTab
     var body: some View {
         ScrollView {
-            VStack {
+            VStack(spacing: 8) {
                 
-                ItemMenuView(label: "Administrativos")
-                HStack{
-                    Button {
-                        self.tab = .Datos
-                    } label: {
-                        VStack{
-                            Image(.icDatos)
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 50, height: 50)
-                            Text("Datos")
-                        }
-                        .frame(maxWidth: .infinity)
-                    }
+                // Administrativos
+                VStack(alignment: .leading, spacing: 8) {
+                    ItemMenuView(label: "Administrativos")
                     
-                    Button {
-                        self.tab = .Pagos
-                    } label: {
-                        VStack{
-                            Image(.icPagos)
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 50, height: 50)
-                            Text("Pagos")
-                        }
-                        .frame(maxWidth: .infinity)
+                    HStack(spacing: 8) {
+                        MenuItemButton(
+                            text: "Datos",
+                            imageName: "ic_datos_actualizado",
+                            action: { self.tab = .Datos }
+                        )
+                        
+                        MenuItemButton(
+                            text: "Pagos",
+                            imageName: "ic_pagos_actualizado",
+                            action: { self.tab = .Pagos }
+                        )
+                        
+                        MenuItemButton(
+                            text: "Registros",
+                            imageName: "ic_inscripciones_actualizado",
+                            action: { self.tab = .Inscripciones }
+                        )
                     }
+                    .frame(maxWidth: .infinity)
                     
-                    Button {
-                        self.tab = .Inscripciones
-                    } label: {
-                        VStack{
-                            Image(.icInscripciones)
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 50, height: 50)
-                            Text("Registros")
-                        }
-                        .frame(maxWidth: .infinity)
+                    HStack(spacing: 8) {
+                        MenuItemButton(
+                            text: "Correos",
+                            imageName: "ic_correos_actualizado",
+                            action: { self.tab = .Correos }
+                        )
+                        
+                        Spacer()
+                            .frame(maxWidth: .infinity)
+                        Spacer()
+                            .frame(maxWidth: .infinity)
                     }
+                    .frame(maxWidth: .infinity)
                 }
                 
                 Spacer()
                     .frame(height: 12)
                 
-                ItemMenuView(label: "Asistencia")
-                HStack {
-                    Button {
-                        self.tab = .DiariaAcumulada
-                    } label: {
-                        VStack{
-                            Image(.icDiariaAcumulada)
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 50, height: 50)
-                            Text("Diaria y acumulado")
-                        }
-                        .frame(maxWidth: .infinity)
-                    }
+                // Asistencia
+                VStack(alignment: .leading, spacing: 8) {
+                    ItemMenuView(label: "Asistencias")
                     
-                    Button {
-                        self.tab = .Justificacion
-                    } label: {
-                        VStack{
-                            Image(.icJustificacion)
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 50, height: 50)
-                            Text("Justificación")
-                        }
-                        .frame(maxWidth: .infinity)
+                    HStack(spacing: 8) {
+                        MenuItemButton(
+                            text: "Diarias",
+                            imageName: "ic_diaria_acumulada_actualizado",
+                            action: { self.tab = .DiariaAcumulada }
+                        )
+                        
+                        MenuItemButton(
+                            text: "Justificaciones",
+                            imageName: "ic_justificacion_actualizado",
+                            action: { self.tab = .Justificacion }
+                        )
+                        
+                        MenuItemButton(
+                            text: "Carnets",
+                            imageName: "ic_carnet_actualizado",
+                            action: { self.tab = .Carnet }
+                        )
                     }
-                    
-                    Button {
-                        self.tab = .Carnet
-                    } label: {
-                        VStack{
-                            Image(.icCarnet)
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 50, height: 50)
-                            Text("Carnet")
-                        }
-                        .frame(maxWidth: .infinity)
-                    }
+                    .frame(maxWidth: .infinity)
                 }
                 
                 Spacer()
                     .frame(height: 12)
                 
-                ItemMenuView(label: "Tareas")
-                HStack{
-                    Button {
-                        self.tab = .Pendientes
-                    } label: {
-                        VStack{
-                            Image(.icPendientes)
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 50, height: 50)
-                            Text("Pendientes")
-                        }
-                        .frame(maxWidth: .infinity)
-                    }
+                // Tareas
+                VStack(alignment: .leading, spacing: 8) {
+                    ItemMenuView(label: "Tareas")
                     
-                    Button {
-                        self.tab = .Incumplimientos
-                    } label: {
-                        VStack{
-                            Image(.icIncumplimientos)
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 50, height: 50)
-                            Text("Incumplimientos")
-                        }
-                        .frame(maxWidth: .infinity)
+                    HStack(spacing: 8) {
+                        MenuItemButton(
+                            text: "Pendientes",
+                            imageName: "ic_pendientes_actualizado",
+                            action: { self.tab = .Pendientes }
+                        )
+                        
+                        MenuItemButton(
+                            text: "Incumplimientos",
+                            imageName: "ic_incumplimientos_actualizado",
+                            action: { self.tab = .Incumplimientos }
+                        )
+                        
+                        Spacer()
+                            .frame(maxWidth: .infinity)
                     }
+                    .frame(maxWidth: .infinity)
                 }
                 
                 Spacer()
                     .frame(height: 12)
                 
-                ItemMenuView(label: "Resultados academicos")
+                // Resultados académicos
+                VStack(alignment: .leading, spacing: 8) {
+                    ItemMenuView(label: "Resultados académicos")
+                    
+                    HStack(spacing: 8) {
+                        MenuItemButton(
+                            text: "Citas/informes",
+                            imageName: "ic_cita_informe_actualizado",
+                            action: { self.tab = .CitaInforme }
+                        )
+                        
+                        Spacer()
+                            .frame(maxWidth: .infinity)
+                        Spacer()
+                            .frame(maxWidth: .infinity)
+                    }
+                    .frame(maxWidth: .infinity)
+                }
+                
+                Spacer()
+                    .frame(height: 12)
+                
+                // Autorizaciones
+                VStack(alignment: .leading, spacing: 8) {
+                    ItemMenuView(label: "Autorizaciones")
+                    
+                    HStack(spacing: 8) {
+                        MenuItemButton(
+                            text: "Autorizaciones",
+                            imageName: "ic_autorizaciones_actualizado",
+                            action: { self.tab = .Autorizaciones }
+                        )
+                        
+                        Spacer()
+                            .frame(maxWidth: .infinity)
+                        Spacer()
+                            .frame(maxWidth: .infinity)
+                    }
+                    .frame(maxWidth: .infinity)
+                }
+                
+                Spacer()
+                
+                // Botón Intranet
                 Button {
-                    self.tab = .CitaInforme
+                    if let link = UserDefaults.standard.string(forKey: Keys.loginIntranet) {
+                        if let url = URL(string: link) {
+                            UIApplication.shared.open(url)
+                        }
+                    }
                 } label: {
-                    HStack{
-                        Image(.icCitaInforme)
+                    HStack(spacing: 12) {
+                        Image(systemName: "globe")
                             .resizable()
                             .scaledToFit()
-                            .frame(width: 50, height: 50)
-                        Text("Cita/informe")
-                        Spacer()
+                            .frame(width: 30, height: 30)
+                        Text("Intranet Web")
+                            .font(.system(size: 16, weight: .bold))
                     }
-                    .padding(.leading)
+                    .foregroundStyle(.white)
                 }
-                
-                Spacer()
-                    .frame(height: 12)
-                
-                ItemMenuView(label: "Autorizaciones")
-                
-                Button {
-                    self.tab = .Autorizaciones
-                } label: {
-                    HStack{
-                        Image(.icAutorizaciones)
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 50, height: 50)
-                        Text("Autorizaciones")
-                        Spacer()
-                    }
-                    .padding(.leading)
-                }
-                
-                HStack{
-                    Spacer()
-                    Button {
-                        if let link = UserDefaults.standard.string(forKey: Keys.loginIntranet) {
-                            if let url = URL(string: link) {
-                                UIApplication.shared.open(url)
-                            }
-                        }
-                    } label: {
-                        HStack{
-                            Image(systemName: "globe")
-                            Text("Intranet")
-                        }
-                        .foregroundStyle(.colorS1)
-                        .frame(width: 200, height: 40)
-                        .background(.white)
-                        .clipShape(.capsule)
-                    }
-                    Spacer()
-                }
-                .padding(.top)
             }
-            .foregroundStyle(.white)
-            .bold()
-            .font(.title3)
-            .padding()
+            .padding(16)
+        }
+    }
+}
+
+// Componente para items verticales (3 columnas)
+struct MenuItemButton: View {
+    let text: String
+    let imageName: String
+    let action: () -> Void
+    
+    var body: some View {
+        Button(action: action) {
+            VStack(spacing: 0) {
+                Image(imageName)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 50, height: 50)
+                
+                Text(text)
+                    .font(.system(size: 14, weight: .medium))
+                    .foregroundStyle(.white)
+                    .multilineTextAlignment(.center)
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.8)
+            }
+            .frame(maxWidth: .infinity, minHeight: 90, alignment: .center)
+        }
+    }
+}
+
+// Componente para items horizontales (ancho completo)
+struct MenuItemHorizontalButton: View {
+    let text: String
+    let imageName: String
+    let action: () -> Void
+    
+    var body: some View {
+        Button(action: action) {
+            HStack(spacing: 5) {
+                Image(imageName)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 50, height: 50)
+                
+                Text(text)
+                    .font(.system(size: 14, weight: .medium))
+                    .foregroundStyle(.white)
+                    .multilineTextAlignment(.leading)
+                    .lineLimit(1)
+                
+                Spacer()
+            }
         }
     }
 }

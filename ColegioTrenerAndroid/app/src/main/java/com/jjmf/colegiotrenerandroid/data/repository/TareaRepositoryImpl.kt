@@ -5,10 +5,12 @@ import com.jjmf.colegiotrenerandroid.core.Result
 import com.jjmf.colegiotrenerandroid.data.dto.EstadoCalPendienteDiaDto
 import com.jjmf.colegiotrenerandroid.data.dto.EstadoCalPendienteDto
 import com.jjmf.colegiotrenerandroid.data.dto.IncumplimientoDto
+import com.jjmf.colegiotrenerandroid.data.dto.CorreoDto
 import com.jjmf.colegiotrenerandroid.data.services.TareaService
 import com.jjmf.colegiotrenerandroid.domain.model.EstadoCalPendiente
 import com.jjmf.colegiotrenerandroid.domain.model.EstadoCalPendienteDia
 import com.jjmf.colegiotrenerandroid.domain.model.Incumplimiento
+import com.jjmf.colegiotrenerandroid.domain.model.CorreoMasivo
 import com.jjmf.colegiotrenerandroid.domain.repository.TareaRepository
 import com.jjmf.colegiotrenerandroid.domain.usecase.TokenUseCase
 import com.jjmf.colegiotrenerandroid.util.convertJson
@@ -72,6 +74,29 @@ class TareaRepositoryImpl @Inject constructor(
             if (call.isSuccessful) {
                 val data = convertJson<Array<IncumplimientoDto>>(call.body()).map { it.toDomain() }
                 Result.Correcto(data)
+            } else Result.Error(call.message())
+        } catch (e: Exception) {
+            Result.Error(e.message)
+        }
+    }
+
+    override suspend fun getCorreos(
+        ctacli: String,
+        dia: String,
+        mes: String,
+        anio: String
+    ): Result<List<CorreoMasivo>> {
+        return try {
+            val call = api.getCorreos(
+                ctacli = ctacli,
+                dia = dia,
+                mes = mes,
+                anio = anio,
+                token = token()
+            )
+            if (call.isSuccessful) {
+                val data = convertJson<Array<CorreoDto>>(call.body())
+                Result.Correcto(data.map { it.toDomain() })
             } else Result.Error(call.message())
         } catch (e: Exception) {
             Result.Error(e.message)

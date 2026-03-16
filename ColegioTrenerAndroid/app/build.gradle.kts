@@ -7,14 +7,14 @@ plugins {
 
 android {
     namespace = "com.jjmf.colegiotrenerandroid"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.jjmf.colegiotrenerandroid"
         minSdk = 26
-        targetSdk = 34
-        versionCode = 9
-        versionName = "2.0.0"
+        targetSdk = 35
+        versionCode = 11
+        versionName = "3.0.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -46,7 +46,7 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.1"
+        kotlinCompilerExtensionVersion = "1.5.10"
     }
     packaging {
         resources {

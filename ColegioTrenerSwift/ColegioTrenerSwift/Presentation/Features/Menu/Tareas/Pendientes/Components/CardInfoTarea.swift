@@ -45,7 +45,9 @@ extension PendientesView {
         }
         .padding(.vertical, 2)
         .foregroundStyle(.white)
-        .background(.colorT1)
+        .background(
+            LeyendaPendientesTab.from(name: tarea.estado)?.color() ?? .colorT1
+        )
         VStack(alignment: .leading, spacing: 0) {
             HStack {
                 Text("Tarea:")

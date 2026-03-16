@@ -18,7 +18,9 @@ import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.jjmf.colegiotrenerandroid.domain.model.EstadoCalPendienteDia
+import com.jjmf.colegiotrenerandroid.ui.theme.ColorGreen
 import com.jjmf.colegiotrenerandroid.ui.theme.ColorT1
+import com.jjmf.colegiotrenerandroid.ui.theme.ColorYellow
 import com.jjmf.colegiotrenerandroid.util.format
 
 @Composable
@@ -26,7 +28,7 @@ fun ItemTareaPendiente(data: EstadoCalPendienteDia) {
     Box(
         modifier = Modifier
             .fillMaxWidth()
-            .background(ColorT1)
+            .background(data.estadoColor())
             .padding(vertical = 2.dp),
         contentAlignment = Alignment.Center
     ) {
@@ -78,5 +80,14 @@ fun ItemTareaPendiente(data: EstadoCalPendienteDia) {
             },
             fontSize = 12.sp
         )
+    }
+}
+
+private fun EstadoCalPendienteDia.estadoColor(): Color {
+    return when (estado?.trim()) {
+        "Pendiente" -> ColorYellow
+        "Revisado" -> ColorGreen
+        "No hizo tarea", "No hizo la tarea" -> ColorT1
+        else -> ColorT1
     }
 }

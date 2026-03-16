@@ -185,5 +185,5 @@ fun LoginScreen(
 }
 
 fun Context.getVersion(): String {
-    return packageManager.getPackageInfo(packageName, 0).versionName
+    return packageManager.getPackageInfo(packageName, 0).versionName ?: ""
 }

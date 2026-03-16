@@ -15,6 +15,7 @@ class IncumplimientosViewModel : ObservableObject {
     
     @Published var trimestre: TrimestreTab = .Uno
     @Published var listIncumplimientos: [TareaIncumplimiento] = []
+    @Published var totalAcumulado: Int = 0
     
     @Published var isError = false
     @Published var error: String?
@@ -57,10 +58,13 @@ class IncumplimientosViewModel : ObservableObject {
                 switch res {
                 case .success(let data):
                     self.listIncumplimientos = data
+                    self.totalAcumulado = data.first(where: { $0.total != nil })?.total ?? 0
                     SVProgressHUD.dismiss()
                 case .failure(let err):
                     self.error = err
                     self.isError = true
+                    self.listIncumplimientos = []
+                    self.totalAcumulado = 0
                     SVProgressHUD.dismiss()
                 }
             }

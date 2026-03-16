@@ -26,28 +26,29 @@ struct AutorizacionesView: View {
     @StateObject var viewModel = AutorizacionesViewModel()
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 12){
-            
-            SelectEstado()
-            
-            SelectAutorizacion()
-            
-            ForEach(viewModel.listEstado, id: \.self) { estado in
-                CardAutorizacion(
-                    estado: estado,
-                    estadoTab: viewModel.estado,
-                    autorizar: { bool in
-                        viewModel.autorizar(estado: bool, ctacli: estado.ctacli)
-                    }
-                )
+        ScrollView {
+            LazyVStack(alignment: .leading, spacing: 12) {
+                
+                SelectEstado()
+                
+                SelectAutorizacion()
+                
+                ForEach(viewModel.listEstado, id: \.self) { estado in
+                    CardAutorizacion(
+                        estado: estado,
+                        estadoTab: viewModel.estado,
+                        autorizar: { bool in
+                            viewModel.autorizar(estado: bool, ctacli: estado.ctacli)
+                        }
+                    )
+                }
+                
             }
-            Spacer()
-            
+            .padding(8)
         }
         .alert(isPresented: $viewModel.isError) {
             Alert(title: Text("Warning"), message: Text(viewModel.error ?? "Sin Definir"))
         }
-        .padding(8)
         .background(.white)
     }
 }
